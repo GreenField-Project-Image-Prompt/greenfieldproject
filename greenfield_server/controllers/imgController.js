@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Img = require("../modules/img");
 
-//GET ALL Imgs
+//GET ALL IMGS
 const getAllImg = async (req, res) => {
   try {
     const imgs = await Img.find({});
@@ -19,7 +19,7 @@ const postOneImg = async (req, res) => {
     res.send(err);
   }
 };
-//DELETE A Img
+//DELETE A IMG
 const deleteImg = async (req, res) => {
   try {
     const deleteOneImg = await Img.deleteOne({ _id: req.params.id });
@@ -28,7 +28,7 @@ const deleteImg = async (req, res) => {
     res.send(err);
   }
 };
-//UPDATE A Img
+//UPDATE A IMG
 const updateImg = async (req, res) => {
   try {
     const updateImg = await Img.findByIdAndUpdate(
