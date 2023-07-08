@@ -1,45 +1,60 @@
-import { rejects } from "assert";
-import React from "react";
 import { useState } from "react";
+import axios from 'axios';
+
+const url = "http://localhost:3000/img"
 
 function UploadImg() {
-  const [image, setImage] = useState("");
-  const [promt, setPrompt] = useState("");
 
-  //input handler***
-  function HandleImage(e) {
-    console.log(e.target.file);
-    setImage(e.target.files[0]);
+  const [postImage, setPostImage] = useState({Base64Img: ""});
+
+
+  const createPost = async (newImage) => {
+    try{
+      await axios.post(url, newImage)
+    }catch(error){
+      console.log(error)
+    }
   }
 
-  function HandlePromt(e) {
-    console.log(e.target.file);
-    setPromt(e.target.files[0]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    createPost(postImage)
+    console.log("Uploaded")
   }
-  //Convert uploaded image to base64 format
-  function convertToBase64(file) {
-    return new Promise((resolve, rejects) => {
-      const fileReader = new FileReader();
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      };
-      fileReader.onerror = (err) => {
-        reject(err);
-      };
-    });
+
+
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
+    const base64 = await convertToBase64(file);
+    console.log(base64)
+    setPostImage({ ...postImage, Base64Img : base64 })
   }
+
+ 
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <input
         type="file"
-        name="file"
+        name="Base64Img"
         accept=" .jpeg,.png,.jpg"
-        onChange={HandleImage***}
+        onChange={(e) => handleFileUpload(e)}
       />
-      <input type="text" name="file" onChange={HandlePromt} />
-      <button>Submit</button>
-    </div>
+      <button type="submit">Submit</button>
+    </form>
   );
 }
 
 export default UploadImg;
+
+ //Convert uploaded image to base64 format
+ function convertToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader();
+    fileReader.onload = () => {
+      resolve(fileReader.result);
+    };
+    fileReader.onerror = (err) => {
+      reject(err);
+    };
+  });
+}
