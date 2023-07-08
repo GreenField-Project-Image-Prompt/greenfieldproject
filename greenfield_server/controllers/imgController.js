@@ -14,7 +14,8 @@ const getAllImg = async (req, res) => {
 const postOneImg = async (req, res) => {
   try {
     const newImg = await Img.create(req.body);
-    res.json({ msg: "Img successfully uploaded" });
+    newImg.save();
+    res.status(201).json({ msg: "Img successfully uploaded" });
   } catch (err) {
     res.status(409).json({ msg: err.msg });
   }
