@@ -14,13 +14,14 @@ const getAllImg = async (req, res) => {
 const postOneImg = async (req, res) => {
   try {
     const newImg = await Img.create(req.body);
-    newImg.save();
-    res.status(201).json({ msg: "Img successfully uploaded" });
+    newImg.save()
+    res.status(201).json({ msg: "Imgs successfully uploaded" });
   } catch (err) {
     res.status(409).json({ msg: err.msg });
   }
 };
-//DELETE A IMG
+
+//DELETE A img
 const deleteImg = async (req, res) => {
   try {
     const deleteOneImg = await Img.deleteOne({ _id: req.params.id });
