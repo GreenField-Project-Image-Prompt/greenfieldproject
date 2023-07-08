@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Profile from "./components/Profile";
+import ImageUpload from "./ImageUpload";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
             <Route path="/" element={<Login />}></Route>
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="/profile" element={<Profile />}></Route>
+            <Route path="/imageUpload" element={<ImageUpload/>}></Route>
           </Routes>
         </div>
       </Router>
