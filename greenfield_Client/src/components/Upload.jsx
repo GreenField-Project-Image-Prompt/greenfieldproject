@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from 'axios';
 
-const url = "http://localhost:3000/img"
+const url = "http://localhost:3000/"
 
 function UploadImg() {
 
@@ -35,7 +35,7 @@ function UploadImg() {
     <form onSubmit={handleSubmit}>
       <input
         type="file"
-        name="Base64Img"
+        name="file"
         accept=" .jpeg,.png,.jpg"
         onChange={(e) => handleFileUpload(e)}
       />
@@ -47,14 +47,15 @@ function UploadImg() {
 export default UploadImg;
 
  //Convert uploaded image to base64 format
- function convertToBase64(file) {
+ function convertToBase64(file){
   return new Promise((resolve, reject) => {
     const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
     fileReader.onload = () => {
-      resolve(fileReader.result);
+      resolve(fileReader.result)
     };
-    fileReader.onerror = (err) => {
-      reject(err);
-    };
-  });
+    fileReader.onerror = (error) => {
+      reject(error)
+    }
+  })
 }

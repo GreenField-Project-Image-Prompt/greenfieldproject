@@ -1,0 +1,5 @@
+DB_CONNECT=mongodb+srv://reactodo:reactodo@cluster0.9me7ngm.mongodb.net/MDI_greenfield?retryWrites=true&w=majority
+
+salt = MDI_greenfield
+
+saltRounds=10
