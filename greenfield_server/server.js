@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-app.use(express.json());
 const port = 3000;
+
+app.use(express.json({limit: '50mb'}));
+
 
 const imgRouter = require("./router/imgRouter.js");
 const userRouter = require("./router/userRouter.js");
