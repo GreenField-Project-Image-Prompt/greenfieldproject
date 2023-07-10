@@ -26,6 +26,9 @@ function ImagePage() {
             <p> {singleData.prompt} </p>
           </Carousel.Caption>
         </Carousel.Item>
+          <div key={singleData._id}>
+          <img src={singleData.Base64Img} width="300" alt="Image" />,
+          <p > {singleData.prompt} </p> </div>
         );
       })}
       </Carousel>
