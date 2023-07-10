@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const url = "http://localhost:3000/img/";
+const url = "http://localhost:3000/img";
 
 function UploadImg() {
   const [postImage, setPostImage] = useState("");
