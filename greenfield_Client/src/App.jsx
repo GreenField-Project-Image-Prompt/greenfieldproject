@@ -3,7 +3,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Profile from "./components/Profile";
 import UploadImg from "./components/Upload";
-import axios from 'axios';
+import ImagePage from "././components/MainImagePage"
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="/profile" element={<Profile />}></Route>
             <Route path="/imageUpload" element={<UploadImg />}></Route>
+            <Route path="/mainImagePage" element={<ImagePage />}></Route>
           </Routes>
         </div>
       </Router>
