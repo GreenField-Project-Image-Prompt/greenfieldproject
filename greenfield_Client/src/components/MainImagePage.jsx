@@ -15,7 +15,7 @@ function ImagePage() {
       <h1>Images page</h1>
       {data.map((singleData) => {
         return (
-          <div>
+          <div key={singleData._id}>
           <img src={singleData.Base64Img} width="300" alt="Image" />,
           <p > {singleData.prompt} </p> </div>
         );

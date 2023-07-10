@@ -3,6 +3,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Profile from "./components/Profile";
 import UploadImg from "./components/Upload";
+import UploadImg2 from "./components/Upload2";
 import ImagePage from "././components/MainImagePage";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="/profile" element={<Profile />}></Route>
             <Route path="/upload" element={<UploadImg />}></Route>
+            <Route path="/upload2" element={<UploadImg2 />}></Route>
             <Route path="/mainImagePage" element={<ImagePage />}></Route>
           </Routes>
         </div>
