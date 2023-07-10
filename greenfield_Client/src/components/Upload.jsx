@@ -41,14 +41,14 @@ function UploadImg() {
 
   return (
     <form>
-            <input type="text" placeholder="Prompt" onChange={handleUploadPrompt} />
+      <input type="text" placeholder="Prompt" onChange={handleUploadPrompt} />
       <br />
 
       <input
         type="file"
-        name="Base64Img"
-        accept=".jpeg,.png,.jpg"
-        onChange={handleFileUpload}
+        name="file"
+        accept=" .jpeg,.png,.jpg"
+        onChange={(e) => handleFileUpload(e)}
       />
       <br />
       <button onClick={handleSubmit} type="submit">
