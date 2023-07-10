@@ -3,8 +3,8 @@ const connection = require("./connection");
 
 const schema = new mongoose.Schema(
   {
-    Base64Img: { type: String },
-    prompt: { type: String,  },
+    Base64Img: { type: String  },
+    prompt: { type: String },
     userId: String,
   },
   { timestamps: true }

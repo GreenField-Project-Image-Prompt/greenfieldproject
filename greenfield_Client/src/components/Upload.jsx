@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const url = "http://localhost:3000/img/";
+const urlImg = "http://localhost:3000/img/";
 
 function UploadImg() {
   const [postImage, setPostImage] = useState({ Base64Img: "" });
@@ -13,8 +13,8 @@ function UploadImg() {
         Base64Img: postImage.Base64Img,
         prompt: postPrompt.prompt,
       };
-      await axios.post(url, postData);
-      console.log(postImage.Base64Img,postPrompt.prompt);
+      await axios.post(urlImg, postData);
+      console.log(postImage.Base64Img, postPrompt.prompt);
     } catch (error) {
       console.log(error);
     }
@@ -29,7 +29,8 @@ function UploadImg() {
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
     const base64 = await convertToBase64(file);
-    setPostImage({ ...postImage, Base64Img: base64 ,});
+    setPostImage({ ...postImage, Base64Img: base64 });
+    console.log(postImage.Base64Img);
   };
 
   const handleUploadPrompt = (e) => {
@@ -40,22 +41,22 @@ function UploadImg() {
 
   return (
     <form>
+            <input type="text" placeholder="Prompt" onChange={handleUploadPrompt} />
+      <br />
+
       <input
         type="file"
         name="Base64Img"
         accept=".jpeg,.png,.jpg"
         onChange={handleFileUpload}
       />
-      <input type="text" placeholder="Prompt" onChange={handleUploadPrompt} />
-
+      <br />
       <button onClick={handleSubmit} type="submit">
         Submit
       </button>
     </form>
   );
 }
-
-export default UploadImg;
 
 // Convert uploaded image to base64 format
 function convertToBase64(file) {
@@ -70,3 +71,5 @@ function convertToBase64(file) {
     };
   });
 }
+
+export default UploadImg;
