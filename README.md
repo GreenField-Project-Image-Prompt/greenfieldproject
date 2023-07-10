@@ -1,9 +1,9 @@
-MVPimage
+greenfield
 
-to start Server write to console 
+to start Server write  
 
 npm start
 
-to start Client write to console 
+to start Client write 
 
 npm run dev

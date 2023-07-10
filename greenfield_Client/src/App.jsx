@@ -24,6 +24,7 @@ function App() {
 }
 export default App;
 
+<<<<<<< HEAD
 
 
 // import { useState } from "react";
@@ -95,3 +96,5 @@ export default App;
 //     };
 //   });
 // }
+=======
+>>>>>>> fa03284a0d9981447c60eb98be8081f158994407

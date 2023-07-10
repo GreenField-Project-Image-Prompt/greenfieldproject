@@ -50,7 +50,7 @@ function Profile() {
       .then((data) => {
         console.log({ data });
         getMyTodos(user._id); //after we need to refresh the page to
-        setTodo(" "); //clears the input area but nor working right now :D
+        setTodo(""); 
       });
   }
 
@@ -61,7 +61,7 @@ function Profile() {
     });
     // const newList = todos.filter((items) => items._id !== id);
     // setTodos(newList);
-       getMyTodos(user._id);
+    getMyTodos(user._id);
   }
   //UPDATE THE TODO
   function update(id) {
@@ -71,8 +71,6 @@ function Profile() {
         console.log({ msg: "list updated" });
         getMyTodos(user._id);
       });
-      
-    
   }
   //TO START WHEN PAGE LOAD
   useEffect(() => {
