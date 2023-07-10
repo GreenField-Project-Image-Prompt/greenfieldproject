@@ -4,12 +4,15 @@ import Signup from "./components/Signup";
 import Profile from "./components/Profile";
 import UploadImg from "./components/Upload";
 import ImagePage from "././components/MainImagePage";
+import Header from "./components/Navbar";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <div>
+        <Header/>
           <Routes>
             <Route path="/" element={<Login />}></Route>
             <Route path="/signup" element={<Signup />}></Route>

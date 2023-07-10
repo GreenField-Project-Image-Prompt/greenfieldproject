@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import Button from 'react-bootstrap/Button';
 
 const urlImg = "http://localhost:3000/img/";
 
@@ -40,20 +41,21 @@ function UploadImg() {
   };
 
   return (
-    <form>
-      <input type="text" placeholder="Prompt" onChange={handleUploadPrompt} />
+    <form id="upload">
       <br />
-
       <input
+        id="inputImg"
         type="file"
         name="file"
         accept=" .jpeg,.png,.jpg"
         onChange={(e) => handleFileUpload(e)}
       />
       <br />
-      <button onClick={handleSubmit} type="submit">
+      <input id="inputPromp" type="text" placeholder="Prompt" onChange={handleUploadPrompt} />
+      <br />
+      <Button variant="success" onClick={handleSubmit} type="submit">
         Submit
-      </button>
+      </Button>
     </form>
   );
 }
@@ -73,3 +75,4 @@ function convertToBase64(file) {
 }
 
 export default UploadImg;
+

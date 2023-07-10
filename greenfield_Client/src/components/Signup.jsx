@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import "../app.css"
 
 const url = "http://localhost:3000/user/signup";
 
@@ -34,39 +37,79 @@ function Signup() {
 
   return (
     <div>
-      <input
-        type="email"
-        placeholder="email"
-        onChange={(e) => {
+      <Form id="form">
+<Form.Group className="mb-3" controlId="formBasicEmail">
+  <Form.Label>Email address</Form.Label>
+  <Form.Control type="email" placeholder="Enter email" onChange={(e) => {
           setEmail(e.target.value);
-        }}
-      />
-      <input
-        type="password"
-        placeholder="password"
-        onChange={(e) => {
+        }}/>
+  <Form.Text className="text-muted">
+    We'll never share your email with anyone else.
+  </Form.Text>
+</Form.Group>
+
+<Form.Group className="mb-3" controlId="formBasicPassword">
+  <Form.Label>Password</Form.Label>
+  <Form.Control type="password" placeholder="Password"  onChange={(e) => {
           setPassword(e.target.value);
-        }}
-      />
-      <button
-        onClick={() => {
+        }}/>
+</Form.Group>
+<Button variant="primary" type="submit" onClick={() => {
           signup();
-        }}
-      >
-        Signup
-      </button>
-      <p>
-        you have an account?
-        <a
+        }}>
+  Login
+</Button>
+<br/>
+<p>
+        you have an account? {" "}
+        <Button variant="warning"
           onClick={() => {
             toLogin();
           }}
-        >
+         >
           Login
-        </a>
+        </Button>
       </p>
+</Form>
     </div>
   );
 }
 
 export default Signup;
+
+/*    <div>
+      <Form id="form">
+<Form.Group className="mb-3" controlId="formBasicEmail">
+  <Form.Label>Email address</Form.Label>
+  <Form.Control type="email" placeholder="Enter email" onChange={(e) => {
+          setEmail(e.target.value);
+        }}/>
+  <Form.Text className="text-muted">
+    We'll never share your email with anyone else.
+  </Form.Text>
+</Form.Group>
+
+<Form.Group className="mb-3" controlId="formBasicPassword">
+  <Form.Label>Password</Form.Label>
+  <Form.Control type="password" placeholder="Password"  onChange={(e) => {
+          setPassword(e.target.value);
+        }}/>
+</Form.Group>
+<Button variant="primary" type="submit" onClick={() => {
+          signup();
+        }}>
+  Login
+</Button>
+<p>
+        you have an account?
+        <a
+          onClick={() => {
+            toSignup();
+          }}
+         >
+          Login
+        </a>
+      </p>
+</Form>
+    </div>
+  );*/

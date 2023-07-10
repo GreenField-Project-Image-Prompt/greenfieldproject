@@ -1,0 +1,26 @@
+#form{
+    display: grid;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+#upload{
+    display: grid;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+#inputPromp{
+    border-radius: 15px;
+    text-align: center;
+}
+
+#inputImg{
+    display: grid;
+}
+
+#main{
+    display: grid;
+    justify-content: center;
+    margin-top: 10%;
+}
