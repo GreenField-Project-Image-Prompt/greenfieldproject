@@ -10,6 +10,7 @@ function Profile() {
     _id: "",
     email: "",
   });
+  
   var [todo, setTodo] = useState("");
   var [todos, setTodos] = useState([]);
 
@@ -43,6 +44,7 @@ function Profile() {
       navigate("/");
     }
   }
+
   //CREATE A TODO
   function create() {
     axios
@@ -72,6 +74,7 @@ function Profile() {
         getMyTodos(user._id);
       });
   }
+
   //TO START WHEN PAGE LOAD
   useEffect(() => {
     getLocalToken();

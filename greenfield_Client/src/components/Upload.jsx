@@ -1,11 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-<<<<<<< HEAD
-const url = "http://localhost:3000/"
-=======
-const url = "http://localhost:3000/img/";
->>>>>>> fa03284a0d9981447c60eb98be8081f158994407
+const urlImg = "http://localhost:3000/img/";
 
 function UploadImg() {
   const [postImage, setPostImage] = useState({ Base64Img: "" });
@@ -17,8 +13,8 @@ function UploadImg() {
         Base64Img: postImage.Base64Img,
         prompt: postPrompt.prompt,
       };
-      await axios.post(url, postData);
-      console.log(postImage.Base64Img,postPrompt.prompt);
+      await axios.post(urlImg, postData);
+      console.log(postImage.Base64Img, postPrompt.prompt);
     } catch (error) {
       console.log(error);
     }
@@ -34,6 +30,7 @@ function UploadImg() {
     const file = e.target.files[0];
     const base64 = await convertToBase64(file);
     setPostImage({ ...postImage, Base64Img: base64 });
+    console.log(postImage.Base64Img);
   };
 
   const handleUploadPrompt = (e) => {
@@ -44,20 +41,16 @@ function UploadImg() {
 
   return (
     <form>
+      <input type="text" placeholder="Prompt" onChange={handleUploadPrompt} />
+      <br />
+
       <input
         type="file"
-<<<<<<< HEAD
         name="file"
         accept=" .jpeg,.png,.jpg"
         onChange={(e) => handleFileUpload(e)}
-=======
-        name="Base64Img"
-        accept=".jpeg,.png,.jpg"
-        onChange={handleFileUpload}
->>>>>>> fa03284a0d9981447c60eb98be8081f158994407
       />
-      <input type="text" placeholder="Prompt" onChange={handleUploadPrompt} />
-
+      <br />
       <button onClick={handleSubmit} type="submit">
         Submit
       </button>
@@ -65,15 +58,8 @@ function UploadImg() {
   );
 }
 
-export default UploadImg;
-
-<<<<<<< HEAD
- //Convert uploaded image to base64 format
- function convertToBase64(file){
-=======
 // Convert uploaded image to base64 format
 function convertToBase64(file) {
->>>>>>> fa03284a0d9981447c60eb98be8081f158994407
   return new Promise((resolve, reject) => {
     const fileReader = new FileReader();
     fileReader.readAsDataURL(file);
@@ -85,3 +71,5 @@ function convertToBase64(file) {
     };
   });
 }
+
+export default UploadImg;
