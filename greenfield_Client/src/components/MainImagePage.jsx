@@ -4,19 +4,21 @@ import { useState, useEffect } from "react";
 function ImagePage() {
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios
-      .get("http://localhost:5000")
-      .then((res) => setData(res.data))
-      .catch((err) => console.log(err, "it has an error"));
-  });
+    axios.get("http://localhost:3000/img").then(({ data }) => {
+      setData(data);
+    });
+    console.log(data);
+  }, []);
+
   return (
     <div className="App">
       <h1>Images page</h1>
       {data.map((singleData) => {
-        const base64String = btoa(
-          String.fromCharCode(...new Uint8Array(singleData.img.data.data))
+        return (
+          <div>
+          <img src={singleData.Base64Img} width="300" alt="Image" />,
+          <p > {singleData.prompt} </p> </div>
         );
-        return <img src={`data:image/png;base64,${base64String}`} width="300"/>
       })}
     </div>
   );

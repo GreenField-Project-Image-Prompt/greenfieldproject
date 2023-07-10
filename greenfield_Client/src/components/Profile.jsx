@@ -65,6 +65,7 @@ function Profile() {
     // setTodos(newList);
     getMyTodos(user._id);
   }
+  
   //UPDATE THE TODO
   function update(id) {
     axios
