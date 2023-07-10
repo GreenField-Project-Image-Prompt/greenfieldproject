@@ -15,7 +15,7 @@ const postOneImg = async (req, res) => {
   try {
     const newImg = await Img.create(req.body);
     newImg.save()
-    res.status(201).json({ msg: "Imgs successfully uploaded" });
+    res.status(201).json({ msg: "Img successfully uploaded" });
   } catch (err) {
     res.status(409).json({ msg: err.msg });
   }

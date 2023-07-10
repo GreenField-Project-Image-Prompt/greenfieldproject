@@ -1,36 +1,32 @@
 import { useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 const url = "http://localhost:3000/"
 
 function UploadImg() {
-
-  const [postImage, setPostImage] = useState({Base64Img: ""});
-
+  const [postImage, setPostImage] = useState({ Base64Img: "" });
 
   const createPost = async (newImage) => {
-    try{
-      await axios.post(url, newImage)
-    }catch(error){
-      console.log(error)
+    try {
+      await axios.post(url, newImage);
+    } catch (error) {
+      console.log(error);
     }
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createPost(postImage)
-    console.log("Uploaded")
-  }
-
+    createPost(postImage);
+    console.log("Uploaded");
+  };
 
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
     const base64 = await convertToBase64(file);
-    console.log(base64)
-    setPostImage({ ...postImage, Base64Img : base64 })
-  }
+    console.log(base64);
+    setPostImage({ ...postImage, Base64Img: base64 });
+  };
 
- 
   return (
     <form onSubmit={handleSubmit}>
       <input

@@ -3,6 +3,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Profile from "./components/Profile";
 import UploadImg from "./components/Upload";
+import axios from 'axios';
 
 function App() {
   return (
