@@ -25,6 +25,7 @@ function Header() {
             <Nav.Link href="/upload">UPLOAD</Nav.Link>
             <Nav.Link href="/">LOGIN</Nav.Link>
             <Nav.Link href="/signup">SIGN UP</Nav.Link>
+            <Nav.Link href="/Userprofile">PROFILE</Nav.Link>
             <Nav.Link onClick={disconnect}>DISCONNECT</Nav.Link>
             {/* <NavDropdown title="IMAGES" id="basic-nav-dropdown">
               <NavDropdown.Item href="/upload">UPLOAD</NavDropdown.Item>
