@@ -13,16 +13,18 @@ function Header() {
       data-bs-theme="light"
     >
       <Container>
-        <Navbar.Brand href="/">IMAGES APP</Navbar.Brand>
+        <Navbar.Brand href="/Home">IMAGES APP</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
+            <Nav.Link href="/Home">HOME</Nav.Link>
+            <Nav.Link href="/upload">UPLOAD</Nav.Link>
             <Nav.Link href="/">LOGIN</Nav.Link>
             <Nav.Link href="/signup">SIGN UP</Nav.Link>
-            <NavDropdown title="IMAGES" id="basic-nav-dropdown">
+            {/* <NavDropdown title="IMAGES" id="basic-nav-dropdown">
               <NavDropdown.Item href="/upload">UPLOAD</NavDropdown.Item>
-              <NavDropdown.Item href="/mainImagePage">IMAGES</NavDropdown.Item>
-            </NavDropdown>
+              <NavDropdown.Item href="/Home">HOME</NavDropdown.Item>
+            </NavDropdown> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

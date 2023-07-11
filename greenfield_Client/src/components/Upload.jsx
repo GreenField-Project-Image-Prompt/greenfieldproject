@@ -1,18 +1,25 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import Button from 'react-bootstrap/Button';
 
 const urlImg = "http://localhost:3000/img/";
+const url = "http://localhost:3000/user/verify";
 
 function UploadImg() {
   const [postImage, setPostImage] = useState({ Base64Img: "" });
   const [postPrompt, setPostPrompt] = useState({ prompt: "" });
 
+  var navigate = useNavigate();
+  var [user, setUser] = useState({
+    _id: "",
+    email: "",
+  });
   const createPost = async () => {
     try {
       const postData = {
         Base64Img: postImage.Base64Img,
         prompt: postPrompt.prompt,
+        userId: user._id,
       };
       await axios.post(urlImg, postData);
       console.log(postImage.Base64Img, postPrompt.prompt);
@@ -20,6 +27,25 @@ function UploadImg() {
       console.log(error);
     }
   };
+
+  function getLocalToken() {
+    if (localStorage.getItem("token")) {
+      //only user has token on local storage he can see the page
+      axios
+        .post(url, { token: localStorage.getItem("token") }) //we are taking token which saved to local storage
+        .then(({ data }) => {
+          if (data._id) {
+            // even if user has token but it is not related to its id send to "/"
+            setUser(data);
+            createPost(data._id); //after create we call func to here
+          } else {
+            navigate("/");
+          }
+        });
+    } else {
+      navigate("/");
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,22 +66,25 @@ function UploadImg() {
     setPostPrompt({ ...postPrompt, prompt: prompt });
   };
 
+  useEffect(() => {
+    getLocalToken();
+  }, []);
+
   return (
-    <form id="upload">
+    <form>
+      <input type="text" placeholder="Prompt" onChange={handleUploadPrompt} />
       <br />
+
       <input
-        id="inputImg"
         type="file"
         name="file"
         accept=" .jpeg,.png,.jpg"
         onChange={(e) => handleFileUpload(e)}
       />
       <br />
-      <input id="inputPromp" type="text" placeholder="Prompt" onChange={handleUploadPrompt} />
-      <br />
-      <Button variant="success" onClick={handleSubmit} type="submit">
+      <button onClick={handleSubmit} type="submit">
         Submit
-      </Button>
+      </button>
     </form>
   );
 }
@@ -75,4 +104,3 @@ function convertToBase64(file) {
 }
 
 export default UploadImg;
-

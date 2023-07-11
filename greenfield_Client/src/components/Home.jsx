@@ -26,7 +26,7 @@ function ImagePage() {
 
   return (
     <div className="App" id="main">
-      <h1>Images page</h1>
+      <h1>Home</h1>
 
       <div className="carousel-container">
         <Carousel>{lastAddedImages}</Carousel>

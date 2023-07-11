@@ -21,7 +21,7 @@ function Profile() {
 
   function getMyTodos(userId) {
     //then we will get users todos
-    axios.get("http://localhost:3000/todo/" + userId).then(({ data }) => {
+    axios.get("http://localhost:3000/img/" + userId).then(({ data }) => {
       setTodos(data);
     });
   }
@@ -48,7 +48,7 @@ function Profile() {
   //CREATE A TODO
   function create() {
     axios
-      .post("http://localhost:3000/todo/", { todo: todo, userId: user._id })
+      .post("http://localhost:3000/img/", { todo: todo, userId: user._id })
       .then((data) => {
         console.log({ data });
         getMyTodos(user._id); //after we need to refresh the page to
@@ -58,7 +58,7 @@ function Profile() {
 
   //DELETE THE TODO
   function del(id) {
-    axios.delete("http://localhost:3000/todo/" + id).then(({ data }) => {
+    axios.delete("http://localhost:3000/img/" + id).then(({ data }) => {
       console.log(data);
     });
     // const newList = todos.filter((items) => items._id !== id);
@@ -69,7 +69,7 @@ function Profile() {
   //UPDATE THE TODO
   function update(id) {
     axios
-      .put("http://localhost:3000/todo/" + id, { todo: todo })
+      .put("http://localhost:3000/img/" + id, { todo: todo })
       .then(({ data }) => {
         console.log({ msg: "list updated" });
         getMyTodos(user._id);
