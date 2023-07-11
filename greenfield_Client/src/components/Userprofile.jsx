@@ -5,7 +5,7 @@ import axios from "axios";
 const urlImg = "http://localhost:3000/img/";
 const url = "http://localhost:3000/user/verify";
 
-function UploadImg() {
+function Userprofile() {
   const [postImage, setPostImage] = useState({ Base64Img: "" });
   const [postPrompt, setPostPrompt] = useState({ prompt: "" });
 
@@ -28,6 +28,20 @@ function UploadImg() {
     }
   };
 
+  function getMyImg(userId) {
+    const postData = {
+      Base64Img: postImage.Base64Img,
+      prompt: postPrompt.prompt,
+      userId: user._id,
+    };
+    //then we will get users img
+    axios.get("http://localhost:3000/img/" + userId).then(({ data }) => {
+      console.log(data);
+      setPostImage(data);
+      setPostPrompt(data);
+    });
+  }
+
   function getLocalToken() {
     if (localStorage.getItem("token")) {
       //only user has token on local storage he can see the page
@@ -47,6 +61,25 @@ function UploadImg() {
     }
   }
 
+  //DELETE THE TODO
+  function del(id) {
+    axios.delete("http://localhost:3000/img/" + id).then(({ data }) => {
+      console.log(data);
+      getMyImg(user._id);
+    });
+  }
+
+  //UPDATE THE TODO
+  function update(id) {
+    // Define your update function here
+  }
+
+  useEffect(() => {
+    getLocalToken();
+    if (user._id) {
+      getMyImg(user._id); // Pass userId to getMyImg
+    }
+  }, [user]); // Add user to dependency array
   const handleSubmit = (e) => {
     e.preventDefault();
     createPost();
@@ -68,24 +101,42 @@ function UploadImg() {
 
   useEffect(() => {
     getLocalToken();
-  }, []);
+      }, [postImage]);
 
   return (
-    <form>
-      <input type="text" placeholder="Prompt" onChange={handleUploadPrompt} />
-      <br />
-
-      <input
-        type="file"
-        name="file"
-        accept=" .jpeg,.png,.jpg"
-        onChange={(e) => handleFileUpload(e)}
-      />
-      <br />
-      <button onClick={handleSubmit} type="submit">
-        Submit
-      </button>
-    </form>
+    <div>
+      <h1>img</h1>
+      <h3>
+        This is Profile of <br /> {user.email}
+      </h3>
+      <div>
+        <ul>
+          {Img.map((e) => {
+            return (
+              <li key={e._id}>
+                <div>
+                  {e.img}
+                  <button /* Delete button*/
+                    onClick={() => {
+                      del(e._id);
+                    }}
+                  >
+                    Delete
+                  </button>
+                  <button /* Update button*/
+                    onClick={() => {
+                      update(e._id);
+                    }}
+                  >
+                    Update
+                  </button>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </div>
   );
 }
 
@@ -103,4 +154,4 @@ function convertToBase64(file) {
   });
 }
 
-export default UploadImg;
+export default Userprofile;

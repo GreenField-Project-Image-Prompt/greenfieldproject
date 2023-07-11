@@ -18,7 +18,7 @@ function ImagePage() {
   };
 
   // Get the last 5 added images
-  const lastAddedImages = data.slice(-5).map((singleData) => (
+  const lastAddedImages = data.slice(0,15).map((singleData) => (
     <Carousel.Item key={singleData._id}>
       <img src={singleData.Base64Img} alt="Carousel Image" />
     </Carousel.Item>
@@ -26,7 +26,7 @@ function ImagePage() {
 
   return (
     <div className="App" id="main">
-      <h1>Images page</h1>
+      <h1>Home</h1>
 
       <div className="carousel-container">
         <Carousel>{lastAddedImages}</Carousel>
