@@ -57,7 +57,7 @@ function Signup() {
 <Button variant="primary" type="submit" onClick={() => {
           signup();
         }}>
-  Login
+  Submit
 </Button>
 <br/>
 <p>

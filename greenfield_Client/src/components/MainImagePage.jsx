@@ -1,37 +1,49 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Carousel from 'react-bootstrap/Carousel';
+import { Carousel } from "react-bootstrap";
+import "./ImagePage.scss";
 
 function ImagePage() {
   const [data, setData] = useState([]);
+
   useEffect(() => {
     axios.get("http://localhost:3000/img").then(({ data }) => {
       setData(data);
     });
-    console.log(data);
   }, []);
+
+  const handleCopyText = (text) => {
+    navigator.clipboard.writeText(text);
+    alert("Copied!");
+  };
+
+  // Get the last 5 added images
+  const lastAddedImages = data.slice(-5).map((singleData) => (
+    <Carousel.Item key={singleData._id}>
+      <img src={singleData.Base64Img} alt="Carousel Image" />
+    </Carousel.Item>
+  ));
 
   return (
     <div className="App" id="main">
       <h1>Images page</h1>
-      <Carousel>
-      {data.map((singleData) => {
-        return (
-          <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={singleData.Base64Img}
-          />
-          <Carousel.Caption>
-            <p> {singleData.prompt} </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-          <div key={singleData._id}>
-          <img src={singleData.Base64Img} width="300" alt="Image" />,
-          <p > {singleData.prompt} </p> </div>
-        );
-      })}
-      </Carousel>
+
+      <div className="carousel-container">
+        <Carousel>{lastAddedImages}</Carousel>
+      </div>
+
+      <div className="card-container">
+        {data.map((singleData) => (
+          <div
+            key={singleData._id}
+            className="card"
+            onClick={() => handleCopyText(singleData.prompt)}
+          >
+            <img src={singleData.Base64Img} alt="Image" />
+            <p className="card-text">{singleData.prompt}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

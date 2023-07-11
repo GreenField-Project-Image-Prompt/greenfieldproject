@@ -6,14 +6,14 @@ import UploadImg from "./components/Upload";
 import UploadImg2 from "./components/Upload2";
 import ImagePage from "././components/MainImagePage";
 import Header from "./components/Navbar";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <div>
-        <Header/>
+          <Header />
           <Routes>
             <Route path="/" element={<Login />}></Route>
             <Route path="/signup" element={<Signup />}></Route>
