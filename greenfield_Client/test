@@ -71,3 +71,33 @@ function convertToBase64(file) {
     };
   });
 }
+
+
+
+
+ // <Carousel.Item>
+            //   <img className="d-block w-100" src={singleData.Base64Img} />
+            // </Carousel.Item>;
+
+
+
+          // <div key={singleData._id}>
+          // <img src={singleData.Base64Img} width="300" alt="Image" />,
+          // <p > {singleData.prompt} </p> </div>
+
+
+
+
+
+
+
+
+
+
+
+          <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap">
+  <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>

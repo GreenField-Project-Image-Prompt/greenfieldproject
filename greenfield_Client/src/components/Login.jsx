@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "../app.css"
 
+
 const url = "http://localhost:3000/user/login";
 
 function Login() {
@@ -58,7 +59,7 @@ function Login() {
 <Button variant="primary" type="submit" onClick={() => {
           login();
         }}>
-  Login
+  Submit
 </Button>
 <br/>
 <p>
