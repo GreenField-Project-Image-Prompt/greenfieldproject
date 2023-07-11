@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-
+import "./signup.scss"
 const url = "http://localhost:3000/user/signup";
 
 function Signup() {
@@ -33,7 +33,7 @@ function Signup() {
   }
 
   return (
-    <div>
+    <div className="login-form">
       <input
         type="email"
         placeholder="email"
