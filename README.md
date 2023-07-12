@@ -1,21 +1,13 @@
 
 Greenfield project 
-
-User can find images and its prompt  to create same and upload their own images also user can upload images and its prompts.
+Users can find images and their prompts to create the same and upload their own images. Users can also upload images and their prompts.
 
 Features
--------------------------------
-
-----------------------------------------
-
-User can upload their own images and their prompts
-Explore images and their prompts
+----
+Users can upload their own images and view prompts to explore the images.
 
 Technologies Used
--------------------------------
-
------------------
-
+----
 React.js: Front-end JavaScript library
 React Bootstrap: UI component library for styling
 Node.js: JavaScript runtime environment
@@ -23,9 +15,7 @@ Express.js: Web application framework for server-side development
 MongoDB: Database for storing datas
 
 Installation
--------------------------------
------
-
+----
 Clone the repository
 
 before starting code  
@@ -37,8 +27,5 @@ Start the development client: npm start
 Make sure you have Node.js and MongoDB installed on your system.
 
 Configuration
--------------------------------
-
 ----
-
 The application requires a connection to a MongoDB database. Set the database connection URL in the .env file
