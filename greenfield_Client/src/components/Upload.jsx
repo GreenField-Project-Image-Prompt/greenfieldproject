@@ -14,6 +14,8 @@ function UploadImg() {
     _id: "",
     email: "",
   });
+
+  //Upload IMg
   const createPost = async () => {
     try {
       const postData = {
