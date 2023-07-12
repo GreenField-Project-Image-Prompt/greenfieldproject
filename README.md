@@ -1,5 +1,6 @@
 
 Greenfield project 
+
 Users can find images and their prompts to create the same and upload their own images. Users can also upload images and their prompts.
 
 Features
