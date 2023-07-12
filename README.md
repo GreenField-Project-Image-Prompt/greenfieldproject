@@ -1,7 +1,7 @@
-to start Client write 
 before start writing code  install 
+
 npm create vite@latest
-cd *project folder* 
+cd *./project folder* 
 
 npm run dev
 greenfield project for quotes hub
