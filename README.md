@@ -29,4 +29,10 @@ Make sure you have Node.js and MongoDB installed on your system.
 
 Configuration
 ----
-The application requires a connection to a MongoDB database. Set the database connection URL in the .env file
+The application requires a connection to a MongoDB database. Set the database connection URL in the .env file.
+
+"DB_CONNECT" for your database link
+
+"salt" for secret
+
+"saltRounds" for number of your salt
