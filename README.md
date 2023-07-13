@@ -36,3 +36,9 @@ The application requires a connection to a MongoDB database. Set the database co
 "salt" for secret
 
 "saltRounds" for number of your salt
+
+## Credits
+
+https://github.com/DPapachristou
+
+https://github.com/guleremre
